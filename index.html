@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Молодёжный эко-патруль порта</title>
+  <style>
+    :root{--ink:#12304a;--muted:#5f7487;--blue:#1689d5;--cyan:#59d6df;--mint:#dff8f2;--paper:#f7fbfd;--line:#d9e8ef;--orange:#ffb45c}
+    *{box-sizing:border-box} html,body{margin:0;width:100%;height:100%;overflow:hidden}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--paper);color:var(--ink)}
+    .slide{position:relative;width:100vw;height:56.25vw;min-height:100vh;max-height:100vh;overflow:hidden;padding:5.2vh 5.8vw;background:linear-gradient(115deg,#fbfeff 0%,#f3f9fb 60%,#e8f6f6 100%)}
+    .blob{position:absolute;border-radius:50%;filter:blur(1px);pointer-events:none}.blob.a{width:34vw;height:34vw;right:-13vw;top:-14vw;background:#d9f4f1;opacity:.8}.blob.b{width:20vw;height:20vw;left:-13vw;bottom:-11vw;background:#e5f0ff}.grid{position:absolute;inset:0;opacity:.25;background-image:linear-gradient(#bed6e0 1px,transparent 1px),linear-gradient(90deg,#bed6e0 1px,transparent 1px);background-size:4vw 4vw;mask-image:linear-gradient(135deg,transparent 10%,#000 65%);pointer-events:none}
+    header{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-start}.eyebrow{font-size:clamp(10px,1vw,16px);letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:800}.number{font-size:clamp(12px,1.1vw,18px);color:#8ca5b3;font-weight:700;letter-spacing:.08em}
+    h1{position:relative;z-index:2;font-size:clamp(30px,4.25vw,78px);line-height:.98;letter-spacing:-.055em;margin:2.5vh 0 1.3vh;max-width:62vw;font-weight:850;animation:rise .8s ease both}.accent{color:var(--blue)}.subtitle{position:relative;z-index:2;color:var(--muted);font-size:clamp(13px,1.25vw,23px);margin:0;max-width:56vw;animation:rise .8s .12s ease both}
+    .hero{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr .8fr;gap:2.4vw;margin-top:4.5vh;align-items:stretch}.panel{background:rgba(255,255,255,.76);border:1px solid rgba(211,230,238,.9);border-radius:24px;box-shadow:0 18px 45px rgba(33,91,115,.08);backdrop-filter:blur(10px)}.story{padding:2.1vw;animation:rise .8s .25s ease both}.story h2{font-size:clamp(18px,1.8vw,32px);margin:0 0 1.2vw;letter-spacing:-.035em}.story p{font-size:clamp(13px,1.15vw,20px);line-height:1.45;color:#36556a;margin:0 0 1.5vw}.pill{display:inline-flex;align-items:center;gap:8px;border-radius:99px;background:#e8f8f5;color:#16786f;font-weight:750;font-size:clamp(11px,.95vw,16px);padding:.65em 1em}.dot{width:8px;height:8px;background:#20bfa9;border-radius:50%;box-shadow:0 0 0 5px #c9f0e9}
+    .metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:1vw;margin-top:1.4vw}.metric{padding:1.05vw;border-radius:16px;background:#f1f8fb;border:1px solid #e2eef2}.metric strong{display:block;color:var(--blue);font-size:clamp(23px,2.55vw,45px);line-height:1;letter-spacing:-.06em}.metric span{display:block;margin-top:.45em;color:var(--muted);font-size:clamp(10px,.9vw,15px);line-height:1.2}
+    .diagram{position:relative;overflow:hidden;padding:1.6vw;background:linear-gradient(150deg,#0e3e60,#0d7695);color:white;animation:rise .8s .38s ease both;min-height:19vw}.diagram:after{content:"";position:absolute;inset:auto -5% -14% -5%;height:40%;background:repeating-radial-gradient(ellipse at 50% 100%,transparent 0 18px,rgba(151,239,237,.24) 19px 21px);opacity:.55}.diagram h3{position:relative;z-index:2;margin:0;font-size:clamp(15px,1.4vw,24px);letter-spacing:-.02em}.diagram small{position:relative;z-index:2;display:block;color:#b9e6ed;margin-top:.4em;font-size:clamp(10px,.9vw,15px)}.ship{position:absolute;z-index:2;left:14%;right:14%;top:40%;height:60px;animation:float 4s ease-in-out infinite}.hull{position:absolute;left:8%;right:4%;bottom:5px;height:22px;background:#fff;border-radius:4px 4px 40px 40px;transform:skewX(-18deg);box-shadow:0 8px 0 rgba(0,0,0,.08)}.deck{position:absolute;left:23%;top:10px;width:41%;height:22px;background:#dff8f2;border-radius:5px}.mast{position:absolute;left:42%;top:-18px;width:3px;height:42px;background:#dff8f2}.flag{position:absolute;left:43%;top:-18px;border-left:25px solid var(--orange);border-top:8px solid transparent;border-bottom:8px solid transparent}.bubble{position:absolute;z-index:2;border:1px solid rgba(255,255,255,.45);border-radius:99px;padding:7px 11px;font-weight:700;font-size:clamp(9px,.78vw,13px);background:rgba(255,255,255,.12);backdrop-filter:blur(5px);animation:pulse 3s ease-in-out infinite}.b1{right:8%;top:31%}.b2{left:8%;bottom:26%}.b3{right:18%;bottom:13%;animation-delay:1s}.bottom{position:absolute;z-index:2;left:5.8vw;right:5.8vw;bottom:4.5vh;display:flex;align-items:end;justify-content:space-between;gap:2vw}.partners{font-size:clamp(10px,.86vw,14px);color:#78909e;max-width:62%}.partners b{display:block;color:#36566a;margin-bottom:.5em;font-size:1.08em}.sdgs{display:flex;gap:9px}.sdg{min-width:46px;text-align:center;border-radius:12px;padding:8px 9px;color:white;font-size:11px;font-weight:800;box-shadow:0 4px 12px rgba(0,0,0,.08)}.s8{background:#a41e35}.s17{background:#19486a}.tagline{position:absolute;z-index:2;right:5.8vw;bottom:1.4vh;color:#9ab0ba;font-size:clamp(9px,.7vw,12px);letter-spacing:.05em}
+    @keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}@keyframes float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-8px) rotate(1deg)}}@keyframes pulse{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.06);opacity:1}}
+    @media(max-aspect-ratio:1/1){.slide{height:100vh;padding:4vh 6vw}.hero{grid-template-columns:1fr;margin-top:3vh}.diagram{min-height:24vh}.bottom{bottom:3vh}.partners{max-width:55%}h1{max-width:90vw}.subtitle{max-width:85vw}}
+  </style>
+</head>
+<body>
+  <main class="slide">
+    <div class="blob a"></div><div class="blob b"></div><div class="grid"></div>
+    <header><div class="eyebrow">Экономика · рынок труда · ESG</div><div class="number">01 / ФОРУМ</div></header>
+    <h1>Молодёжный <span class="accent">эко‑патруль</span> порта</h1>
+    <p class="subtitle">От занятости — к устойчивому развитию. Калининградская модель по мотивам Sea Ranger Service, Роттердам.</p>
+    <section class="hero">
+      <article class="panel story">
+        <h2>Учимся через реальную работу</h2>
+        <p>Молодёжь 18–29 лет получает зарплату, морскую подготовку и первый опыт прямо в портовой среде.</p>
+        <span class="pill"><i class="dot"></i> Порт как площадка развития</span>
+        <div class="metrics"><div class="metric"><strong>до 200</strong><span>трудоустроенных за 3 года</span></div><div class="metric"><strong>50%</strong><span>остаются в морском секторе</span></div></div>
+      </article>
+      <aside class="panel diagram"><h3>Три эффекта одной модели</h3><small>работа · кадры · экология</small><div class="ship"><div class="flag"></div><div class="mast"></div><div class="deck"></div><div class="hull"></div></div><div class="bubble b1">Кадры</div><div class="bubble b2">Доход</div><div class="bubble b3">ESG</div></aside>
+    </section>
+    <footer class="bottom"><div class="partners"><b>Партнёрство для запуска</b>КМТП · Морской рыбный порт · БГАРФ · КМРК · Правительство области · Центр занятости</div><div class="sdgs"><div class="sdg s8">ЦУР<br>8</div><div class="sdg s17">ЦУР<br>17</div></div></footer>
+    <div class="tagline">КАЛИНИНГРАД · ПОРТ, КОТОРЫЙ РАСТИТ БУДУЩЕЕ</div>
+  </main>
+</body>
+</html>
