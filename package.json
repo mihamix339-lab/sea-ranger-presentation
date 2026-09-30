@@ -1,0 +1,7 @@
+{
+  "name": "sea-ranger-powerpoint",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {"build": "node generate-pptx.js"},
+  "dependencies": {"pptxgenjs": "^3.12.0"}
+}
